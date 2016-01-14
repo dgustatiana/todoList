@@ -16,7 +16,7 @@
         </p>
             <br>
         <h2>Dépôt Git du projet: </h2>
-        <a href="https://github.com/dgustatiana">https://github.com/dgustatiana</a>
+        <a href="https://github.com/dgustatiana/todoList">https://github.com/dgustatiana/todoList</a>
 
     </div>
 @endsection

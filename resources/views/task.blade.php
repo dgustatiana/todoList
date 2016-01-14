@@ -10,7 +10,7 @@
     <br>
     <div class="col-sm-offset-2 col-sm-7">
         <div class="panel panel-info">
-            <div class="panel-heading">Ajout de votre tache</div>
+            <div class="panel-heading">Ajout de votre tâche</div>
             <div class="panel-body">
                 {!! Form::open(array('url' => '/task')) !!}
                 <div class="form-group {!! $errors->has('tache') ? 'has-error' : '' !!}">

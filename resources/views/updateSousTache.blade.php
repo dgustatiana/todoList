@@ -11,7 +11,7 @@
     <br>
     <div class="col-sm-offset-2 col-sm-7">
         <div class="panel panel-info">
-            <div class="panel-heading">Modification de votre sous-tache</div>
+            <div class="panel-heading">Modification de votre sous-tâche</div>
             <div class="panel-body">
 
                 {!! Form::open(array('url' => '/editSTache/'.$id)) !!}

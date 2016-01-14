@@ -9,32 +9,32 @@ Liste
         margin-left:auto;
         margin-right: auto;
         max-width: 400px;
-
     }
     .titre_tache{
-        padding-bottom: 2px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        background-color: dodgerblue;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: rgb(180,220,100);
         margin-bottom: 0;
-        height: 35px;
-
-        text-align: center;
+		text-align: center;
     }
     .lien{
-margin-right: -110px;
-text-decoration: none;
+		margin-right: -110px;
         color: black;
+		margin-right: 5%;
     }
     h1
     {
         text-align: center;
     }
-    p{text-align: center;
+    p{
+		text-align: left;
         margin-top: -15px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        background: #46b8da;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background: rgb(150,190,70);
+		height:100px;
     }
     .bordure
     {
@@ -46,18 +46,15 @@ text-decoration: none;
 </style>
 
 @section('contenu')
-    <h1>Mes listes de taches</h1>
+    <h1 style="border-bottom:2px rgb(180,220,100) solid; padding-bottom:20px;">Mes tâches</h1>
     <div class="row">
 
     @foreach($tasks as $task)
-        <div class="bordure">
-            <div class="col-md-4 portfolio-item">
-      <h3 class="titre_tache">
+    <div class="bordure">
+        <div class="col-md-4 portfolio-item">
+			<h3 class="titre_tache">
               <a class="lien" id="{{$task->id}}">{{$task->name}}</a>
-
-              <a type="button" style="margin-top:2px;float: right;margin-right: 10px;" class="btn btn-primary btn-sm" href="{{URL::to('/update/'.$task->id)}}">Edit</a>
-              <a type="button" style="margin-top:2px;float: right;margin-right: 3px;" class="btn btn-danger btn-sm" href="{{URL::to('/Delete/'.$task->id)}}">Delete</a>
-      </h3>
+			</h3>
        <p>{{$task->descriptionTache}}
 
            @if($lists->where('task_id',$task->id) )
@@ -68,11 +65,14 @@ text-decoration: none;
            <br>
          Créé le:  {{$task->created_at}}
            <br>
-          <a href="{{URL::to('/SeeSousTask/'.$task->id)}}">Voir vos sous-taches</a>
+          <a href="{{URL::to('/SeeSousTask/'.$task->id)}}">Voir vos sous-tâches</a>
+		  <br>
+            <a type="button" style="margin-top:2px; float:left; margin-left:10px; background:rgb(255,120,120);" class="btn btn-primary btn-sm" href="{{URL::to('/update/'.$task->id)}}">Editer</a>
+            <a type="button" style="border-radius:15px; width:52%; float:left; margin-left:3%; margin-top:2px; background:rgb(128,128,255);" class="btn btn-primary btn-sm" href="{{URL::to('/NewTask/'.$task->id)}}">Ajouter une sous-tâche à {{$task->name}}</a>
+            <a type="button" style="margin-top:2px; float:right; margin-right:10px; background:rgb(255,120,120);" class="btn btn-danger btn-sm" href="{{URL::to('/Delete/'.$task->id)}}">Supprimer</a>
        </p>
-                <a type="button" style="border-radius:10px;width:100%;margin-top:-10px;" class="btn btn-primary btn-sm" href="{{URL::to('/NewTask/'.$task->id)}}">Ajouter une sous-tache à {{$task->name}}</a>
 <br>
-                </div>
+        </div>
     @endforeach
     </div>
 

@@ -39,7 +39,7 @@ class ListeTaskController extends Controller
         $tache = Task::where('id',$id)->where('user_id',$user)->get();
         if($tache->isEmpty())
         {
-            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre tache');
+            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre tâche.');
         }
         else
         {
@@ -69,11 +69,11 @@ class ListeTaskController extends Controller
             $tache = Liste::find($id);
             $tache->Accompli="1";
             $tache->update();
-            return redirect('/list')->with('flash_message','Modifié avec succés');
+            return redirect('/list')->with('flash_message','Modifié avec succès');
         }
         else
         {
-            return redirect('/list')->with('flash_message_bad',"Erreur vous avez modifié l'id");
+            return redirect('/list')->with('flash_message_bad',"Erreur! Vous avez modifié l'id");
         }
 
     }
@@ -105,7 +105,7 @@ class ListeTaskController extends Controller
         if($tache->isEmpty())
         {
 
-            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre tache');
+            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre tâche');
         }
         else
         {
@@ -138,7 +138,7 @@ class ListeTaskController extends Controller
         $tache->user_id=Auth::user()->id;
         $tache->Accompli="0";
         $tache->save();
-        return redirect('/list')->with('flash_message','Sous-tache ajoutée avec succés');
+        return redirect('/list')->with('flash_message','Sous-tache ajoutée avec succès');
 
     }
 
@@ -151,7 +151,7 @@ class ListeTaskController extends Controller
 
         if($tache->isEmpty())
         {
-            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre sous-tache');
+            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre sous-tâche.');
         }
         else
         {
@@ -173,11 +173,11 @@ class ListeTaskController extends Controller
             $soustache=new Liste();
             $soustache=Liste::where('id',$id);
             $soustache->delete();
-            return redirect('/list')->with('flash_message','Suprimé avec succés');
+            return redirect('/list')->with('flash_message','Supprimé avec succès');
         }
         else
         {
-            return redirect('/list')->with('flash_message_bad',"Erreur vous avez modifié l'id");
+            return redirect('/list')->with('flash_message_bad',"Erreur! Vous avez modifié l'id.");
         }
 
     }
@@ -199,11 +199,11 @@ class ListeTaskController extends Controller
             $tache->DateCrea =$request->input('dateFin');
 
             $tache->update();
-            return redirect('/list')->with('flash_message','Sous-tache modifiée avec succés');
+            return redirect('/list')->with('flash_message','Sous-tache modifiée avec succès');
         }
         else
         {
-            return redirect('/list')->with('flash_message_bad',"Erreur vous avez modifié l'id");
+            return redirect('/list')->with('flash_message_bad',"Erreur! Vous avez modifié l'id.");
         }
 
     }

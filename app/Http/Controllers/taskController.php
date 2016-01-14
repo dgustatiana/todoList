@@ -39,7 +39,7 @@ class taskController extends Controller
         $tache->descriptionTache =$request->input('description');
         $tache->fini="0";
         $tache->save();
-        return redirect('/')->with('flash_message','Ajouté avec succés');
+        return redirect('/')->with('flash_message','Ajouté avec succès');
 
     }
 
@@ -61,12 +61,12 @@ class taskController extends Controller
             $soustache=Liste::where('task_id',$id)->where('user_id',$user);
             $soustache->delete();
             $tache->delete();
-            return redirect('/list')->with('flash_message','Suprimé avec succés');
+            return redirect('/list')->with('flash_message','Suprimé avec succès');
 
         }
         else
         {
-            return redirect('/list')->with('flash_message_bad',"Erreur vous avez modifié l'id");
+            return redirect('/list')->with('flash_message_bad',"Erreur! Vous avez modifié l'id");
         }
 
        }
@@ -91,11 +91,11 @@ class taskController extends Controller
             $tache->descriptionTache =$request->input('description');
            // $tache->fini="0";
             $tache->update();
-            return redirect('/list')->with('flash_message','Modifié avec succés');
+            return redirect('/list')->with('flash_message','Modifié avec succès');
         }
         else
         {
-            return redirect('/list')->with('flash_message_bad',"Erreur vous avez modifié l'id");
+            return redirect('/list')->with('flash_message_bad',"Erreur! Vous avez modifié l'id");
         }
 
     }
@@ -109,7 +109,7 @@ class taskController extends Controller
         if($tache->isEmpty())
         {
 
-            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre tache');
+            return redirect('/list')->with('flash_message_bad','Ceci n\'est pas votre tâche');
         }
         else
         {
